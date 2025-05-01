@@ -4,10 +4,25 @@ pipeline{
         SONARQUBE_SERVER = 'SonarQubeServer'
     }
     stages{
-        stage("Checkout"){
+        stage('Checkout'){
             steps{
-                git ' '
+                git 'https://github.com/manojbalineni/spring-boot-sonarqube-demo'
             }
+        }
+
+        stage('Build'){
+            steps{
+                bat 'mvn clean install'
+            }
+
+        }
+
+        stage('SonarQube Analysis'){
+        steps{
+            withSonarQubeEnv("${SONARQUBE_SERVER}"){
+                bat 'mvn sonar:sonar'
+            }
+        }
         }
     }
 }
