@@ -9,6 +9,6 @@ public class SampleController {
 
     @GetMapping(value = "/test")
     public String test(){
-        return "This is the testing API";
+        return "This is the testing the API";
     }
 }
