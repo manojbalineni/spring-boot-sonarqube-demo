@@ -5,6 +5,11 @@ pipeline {
         SONARQUBE_SERVER = 'SonarQubeServer'  // Name as configured in Jenkins
     }
 
+    tools {
+        maven 'Maven'
+        jdk 'JDK17'
+    }
+
     stages {
         stage('Checkout') {
             steps {
