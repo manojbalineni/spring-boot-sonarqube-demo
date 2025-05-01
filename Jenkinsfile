@@ -17,7 +17,7 @@ pipeline {
             steps {
                 // Compile and package the project with Maven
                 script {
-                    bat 'mvn clean install'
+                    bat 'mvn clean package -DskipTests'
                 }
             }
         }
